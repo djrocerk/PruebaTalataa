@@ -1,0 +1,90 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.example-card {
+  width: 320px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  overflow: hidden;
+  position: relative;
+}
+
+.example-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+}
+
+.mat-card-header {
+  padding: 1rem;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+.content-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.product-list,
+.client-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-list li,
+.client-list li {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #444;
+  border-bottom: 1px solid #eee;
+}
+
+.product-list li:last-child,
+.client-list li:last-child {
+  border-bottom: none;
+}
+
+.mat-card-avatar {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.mat-card-content {
+  padding: 1rem;
+}
+
+.mat-card-header-text {
+  margin-left: 1rem;
+  color: #fff;
+}
+
+.mat-card {
+  padding: 0;
+}

@@ -1,0 +1,54 @@
+<div class="sidebar" [ngClass]="{ 'closed': !isOpen }">
+  <div class="header">
+    <mat-icon class="cart-icon text-primary">shopping_cart</mat-icon>
+    <p class="text-secondary">Carrito de Productos / Compras</p>
+  </div>
+  <ul *ngIf="cartItems.length > 0; else emptyCart">
+    <div class="product" *ngFor="let item of cartItems">
+      <div class="product-item">
+        <img
+          appImgBroken
+          [customImg]="'../assets/images/img-broken.png'"
+          [src]="item.imagen"
+          alt="Product image"
+        />
+        <div class="product-details">
+          <span class="product-name text-secondary">{{ item.nombre }}</span>
+          <span class="product-price text-secondary">{{ item.precio | currency : 'COP $' }}</span>
+        </div>
+      </div>
+      <div class="product-actions">
+        <div class="quantity-container">
+          <label class="text-secondary font-strong" for="{{ item.id }}">Cantidad</label>
+          <input
+            id="{{ item.id }}"
+            class="custom-number-input"
+            type="number"
+            [(ngModel)]="item.cantidad"
+            (change)="onQuantityChange(item.id, $event)"
+            min="1"
+          />
+
+        </div>
+        <button mat-icon-button color="warn" (click)="removeItemFromCart(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </ul>
+  <div *ngIf="cartItems.length > 0" class="total-section">
+    <p class="total-text text-black">Total: {{ total | currency : 'COP $' }}</p>
+    <div *ngIf="errorCompra" class="error-message">
+      {{ errorCompra }}
+    </div>
+    <button (click)="comprar()" class="buy-button">Comprar</button>
+  </div>
+  <ng-template #emptyCart>
+    <p class="empty-cart-text">No hay productos en el carrito</p>
+  </ng-template>
+  <div class="random-cart-section">
+    <button (click)="generateRandomCart()" class="random-cart-button">
+      Generar carrito aleatorio
+    </button>
+  </div>  
+</div>

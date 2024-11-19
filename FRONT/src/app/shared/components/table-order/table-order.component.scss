@@ -1,0 +1,60 @@
+.table-container {
+  display: flex;
+  justify-content: center;
+  padding: 3% 10%;
+}
+
+.custom-table {
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  border-collapse: collapse;
+}
+
+.mat-h,
+.mat-c {
+  padding: 8px;
+  text-align: center;
+}
+
+.mat-h {
+  color: #333;
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+}
+
+.mat-c {
+  color: #555;
+  border-bottom: 1px solid #ccc;
+}
+
+.btn-ver-mas,
+.btn-eliminar {
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 120px;
+}
+
+.btn-separator {
+  margin-right: 10px;
+}
+
+.header-t {
+  background-color: rgb(237, 192, 137);
+}
+
+.custom-button {
+  color: #007bff;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #9cb6d1d7;
+}

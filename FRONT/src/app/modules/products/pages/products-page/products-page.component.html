@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="carrito">
+    <input type="text" [(ngModel)]="searchQuery" (input)="searchProducts()" placeholder="Buscar productos por nombre"
+      class="custom-number-input" />
+    <select [(ngModel)]="selectedCategory" (change)="filterByCategory()" class="custom-number-input">
+      <option value="" disabled selected>Seleccionar categoría</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+    <select [(ngModel)]="selectedPriceRange" (change)="filterByPriceRange()" class="custom-number-input">
+      <option value="" disabled selected>Seleccionar rango de precio</option>
+      <option *ngFor="let range of priceRanges" [value]="range">{{ range }}</option>
+    </select>
+  </div>
+  <app-card-products [product]="dataProducts"></app-card-products>
+  <app-sidebar class="sidebar" [isOpen]="sidebarOpen"></app-sidebar>
+  <button (click)="toggleSidebarVisibility()" class="toggle-sidebar-button">
+    <mat-icon class="cart-icon" [ngClass]="{ 'closed-cart': sidebarOpen }">shopping_cart</mat-icon>
+  </button>
+</div>

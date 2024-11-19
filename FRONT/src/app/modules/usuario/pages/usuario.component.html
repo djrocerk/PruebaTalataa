@@ -1,0 +1,91 @@
+<div class="login-container">
+  <div class="container">
+    <div class="login-box">
+      <h2 *ngIf="!isEditMode">Crear Usuario</h2>
+      <h2 *ngIf="isEditMode">Editar Usuario</h2>
+
+      <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="input-group">
+          <input type="text" formControlName="username" placeholder="Username" />
+          <div *ngIf="userForm.get('username')?.invalid && userForm.get('username')?.touched" class="error">
+            Username es requerido
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input type="text" formControlName="firstname" placeholder="Firstname" />
+          <div *ngIf="userForm.get('firstname')?.invalid && userForm.get('firstname')?.touched" class="error">
+            Nombre es requerido
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input type="text" formControlName="lastname" placeholder="Lastname" />
+          <div *ngIf="userForm.get('lastname')?.invalid && userForm.get('lastname')?.touched" class="error">
+            Apellido es requerido
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input type="email" formControlName="email" placeholder="Email" />
+          <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="error">
+            Email válido es requerido
+          </div>
+        </div>
+
+        <div class="input-group">
+          <select formControlName="role">
+            <option value="" disabled>Seleccione un rol</option>
+            <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+          </select>
+          <div *ngIf="userForm.get('role')?.invalid && userForm.get('role')?.touched" class="error">
+            Rol es requerido
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input type="password" formControlName="password" placeholder="Contraseña" />
+          <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" class="error">
+            La contraseña debe tener al menos 6 caracteres.
+          </div>
+        </div>
+
+        <button type="submit" [disabled]="userForm.invalid">
+          {{ isEditMode ? 'Actualizar Usuario' : 'Crear Usuario' }}
+        </button>
+      </form>
+    </div>
+
+    <div class="table-container">
+      <h2>Lista de Usuarios</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <td>{{ usuario.username }}</td>
+            <td>{{ usuario.firstname }}</td>
+            <td>{{ usuario.lastname }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.role }}</td>
+            <td>
+              <button class="edit-button" (click)="editUser(usuario)">Editar</button>
+              <button class="delete-button" (click)="deleteUser(usuario.id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

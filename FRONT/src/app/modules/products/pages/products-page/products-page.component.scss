@@ -1,0 +1,80 @@
+.contentainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.carrito {
+  margin: -114px 0 0 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.toggle-sidebar-button {
+  background-color: #75c8bd;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  outline: none;
+  text-align: center;
+}
+
+.toggle-sidebar-button:hover {
+  background-color: #64b621;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-sidebar-button:active {
+  background-color: #7bff02;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.cart-icon {
+  color: #000000;
+  transition: color 0.3s ease;
+}
+
+.closed-cart {
+  color: #830606;
+}
+
+.sidebar {
+  position: relative;
+  margin-top: -40px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+.custom-number-input {
+  margin-right: 5%;
+  height: 60px;
+  width: 30%;
+  padding: 12px 16px;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+  -moz-appearance: textfield;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}

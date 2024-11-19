@@ -1,0 +1,61 @@
+<div class="table-container">
+  <table mat-table [dataSource]="orders" class="mat-elevation-z8 custom-table">
+    <ng-container matColumnDef="id">
+      <th class="mat-h" mat-header-cell *matHeaderCellDef>#</th>
+      <td class="mat-c" mat-cell *matCellDef="let order">
+        {{ order.id }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha">
+      <th class="mat-h" mat-header-cell *matHeaderCellDef>Fecha del pedido</th>
+      <td class="mat-c" mat-cell *matCellDef="let order">
+        {{ order.fecha | date : "longDate" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="total">
+      <th class="mat-h" mat-header-cell *matHeaderCellDef>Total Pagado</th>
+      <td class="mat-c" mat-cell *matCellDef="let order">
+        {{ order.total | currency : "COP " : "symbol" : "1.0-0" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th class="mat-h" mat-header-cell *matHeaderCellDef>Opciones</th>
+      <td class="mat-c" mat-cell *matCellDef="let order">
+        <button
+          mat-icon-button
+          class="custom-button"
+          (click)="verMas(order.id)"
+        >
+          <mat-icon>info</mat-icon>
+        </button>
+
+        <span class="btn-separator"></span>
+
+        <button
+          mat-icon-button
+          color="warn"
+          (click)="deleteOrder(order.id)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr
+      class="header-t"
+      mat-header-row
+      *matHeaderRowDef="['id', 'fecha', 'total', 'acciones']"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: ['id', 'fecha', 'total', 'acciones']"
+    ></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No hay datos disponibles</td>
+    </tr>
+  </table>
+</div>

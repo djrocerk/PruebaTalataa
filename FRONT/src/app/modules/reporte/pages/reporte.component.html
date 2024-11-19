@@ -1,0 +1,47 @@
+<div class="card-container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title class="card-title">Clientes Frecuentes</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <h2 class="content-title">Top Clientes:</h2>
+      <ul class="client-list">
+        <li *ngFor="let client of frequentClients">
+          <strong>{{ client.firstname }} {{ client.lastname }}</strong>
+          - Frecuencia: {{ client.frecuencia ? client.frecuencia : 0 }}
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title class="card-title">Productos Más Vendidos</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <h2 class="content-title">Top Productos:</h2>
+      <ul class="product-list">
+        <li *ngFor="let product of topSoldProducts">
+          <strong>{{ product.productoNombre }}</strong>
+          - Vendido: {{ product.totalVendido }} veces
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title class="card-title">Productos Activos</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <h2 class="content-title">Cantidad Total:</h2>
+      <p class="card-text">{{ activeProductsCount }}</p>
+      <p class="card-text">Descripción: Productos disponibles en el inventario.</p>
+    </mat-card-content>
+  </mat-card>

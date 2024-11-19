@@ -1,0 +1,71 @@
+<div class="table-container">
+  <table
+    mat-table
+    [dataSource]="detalleOrders"
+    class="mat-elevation-z8 custom-table"
+  >
+    <ng-container matColumnDef="idDetallepedido">
+      <th class="mat-h" mat-header-cell *matHeaderCellDef>#</th>
+      <td class="mat-c" mat-cell *matCellDef="let detalle">
+        {{ detalle.id }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="productos">
+      <th class="mat-h" mat-header-cell *matHeaderCellDef>Elemento</th>
+      <td class="mat-c" mat-cell *matCellDef="let detalle">
+        {{ detalle.producto.nombre }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cantidad">
+      <th class="mat-h" mat-header-cell *matHeaderCellDef>Cantidad</th>
+      <td class="mat-c" mat-cell *matCellDef="let detalle">
+        {{ detalle.cantidad }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="precioUnitario">
+      <th class="mat-h" mat-header-cell *matHeaderCellDef>Precio</th>
+      <td class="mat-c" mat-cell *matCellDef="let detalle">
+        {{ detalle.precioUnidad | currency : "COP " }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subtotal">
+      <th class="mat-h" mat-header-cell *matHeaderCellDef>Subtotal</th>
+      <td class="mat-c" mat-cell *matCellDef="let detalle">
+        {{ detalle.subtotal | currency : "COP " }}
+      </td>
+    </ng-container>
+
+    <tr
+      class="header-t"
+      mat-header-row
+      *matHeaderRowDef="[
+        'idDetallepedido',
+        'productos',
+        'cantidad',
+        'precioUnitario',
+        'subtotal'
+      ]"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="
+        let row;
+        columns: [
+          'idDetallepedido',
+          'productos',
+          'cantidad',
+          'precioUnitario',
+          'subtotal'
+        ]
+      "
+    ></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="5">No hay datos disponibles</td>
+    </tr>
+  </table>
+</div>

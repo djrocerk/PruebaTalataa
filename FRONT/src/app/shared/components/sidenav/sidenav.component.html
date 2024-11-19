@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="toolbar-svg">
+  <rect width="1440" height="320" fill="#f0f2f5"></rect>
+  <foreignObject x="0" y="0" width="1440" height="320">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="toolbar-content">
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <div style="display: flex; gap: 20px;">
+          <a mat-button routerLink="/home/products" style="color: black; font-size: 1.2em;">Productos</a>
+          <a mat-button routerLink="/home/order" style="color: black; font-size: 1.2em;">Ordenes</a>
+        </div>
+        <div style="display: flex; gap: 20px; align-items: center; background-color: brown; border-radius: 50px;margin-right:110px;">
+          <button mat-button (click)="logout()" style="color: white; font-size: 1.2em; display: flex; align-items: center; ">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 20px; height: 20px; margin-right: 5px;">
+              <path d="M10 9v6h4v-4h4v-2h-4v-4h-4zM4 4h10v2h-10v12h10v2h-10c-1.1 0-2-.9-2-2v-12c0-1.1.9-2 2-2z"/>
+            </svg>
+            Cerrar Sesión
+          </button>
+        </div>
+      </div>
+    </div>
+  </foreignObject>
+</svg>

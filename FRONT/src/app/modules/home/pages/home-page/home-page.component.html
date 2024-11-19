@@ -1,0 +1,9 @@
+<div class="container">
+  <ng-container *ngIf="role === 'admin'; else userSidenav">
+    <app-sidenav-admin></app-sidenav-admin>
+  </ng-container>
+  <ng-template #userSidenav>
+    <app-sidenav></app-sidenav>
+  </ng-template>
+  <router-outlet></router-outlet>
+</div>
